@@ -1,6 +1,6 @@
 
 
-function mostFrequentEven(nums) {
+let mostFrequentEven = function(nums) {
     const frequency = new Map();
 
     for (const num of nums) {
@@ -24,4 +24,5 @@ function mostFrequentEven(nums) {
 
     return result;
 }
+
 
