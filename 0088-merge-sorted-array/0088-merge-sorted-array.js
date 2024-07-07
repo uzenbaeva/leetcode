@@ -1,28 +1,29 @@
-function merge(nums1, m, nums2, n) {
-    let nums1Copy = nums1.slice(0, m);
-    let i = 0, j = 0, k = 0;
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function(nums1, m, nums2, n) {
+     let i = m - 1;
+    let j = n - 1;
+    let k = m + n - 1; 
 
-    while (i < m && j < n) {
-        if (nums1Copy[i] <= nums2[j]) {
-            nums1[k] = nums1Copy[i];
-            i++;
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
         } else {
             nums1[k] = nums2[j];
-            j++;
+            j--;
         }
-        k++;
+        k--;
     }
 
-    while (i < m) {
-        nums1[k] = nums1Copy[i];
-        i++;
-        k++;
-    }
-
-    while (j < n) {
+    while (j >= 0) {
         nums1[k] = nums2[j];
-        j++;
-        k++;
+        k--;
+        j--;
     }
 }
-
